@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "streams.h"
+#include "stream.h"
 
 static void test_stream_init() {
   stream_t *stream = NULL;
