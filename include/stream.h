@@ -29,4 +29,6 @@ void stream_ser_string(stream_t *stream, const char *data,
 
 void stream_des_string(char *buffer, stream_t *stream, const size_t size);
 
+int stream_is_empty(const stream_t *stream);
+
 #endif

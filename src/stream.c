@@ -63,3 +63,9 @@ void stream_ser_string(stream_t *stream, const char *data,
 void stream_des_string(char *dest, stream_t *stream, const size_t size) {
   stream_deserialize(dest, stream, size);
 }
+
+int stream_is_empty(const stream_t *stream) {
+  assert(stream);
+
+  return (stream->next == 0 ? 0 : (-1));
+}

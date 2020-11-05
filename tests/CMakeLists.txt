@@ -18,3 +18,10 @@ add_test(
     NAME test_ser_string
     COMMAND test_ser_string
 )
+
+add_executable(test_is_empty test_is_empty.c)
+target_link_libraries(test_is_empty net::stream)
+add_test(
+    NAME test_is_empty
+    COMMAND test_is_empty
+)
