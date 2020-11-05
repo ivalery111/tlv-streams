@@ -11,3 +11,10 @@ add_test(
     NAME test_stream_ser
     COMMAND test_stream_ser
 )
+
+add_executable(test_ser_string test_ser_string.c)
+target_link_libraries(test_ser_string net::stream)
+add_test(
+    NAME test_ser_string
+    COMMAND test_ser_string
+)

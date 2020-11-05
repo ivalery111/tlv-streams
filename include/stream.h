@@ -24,4 +24,9 @@ void stream_serialize(stream_t *stream, const char *data,
                       const size_t data_size);
 void stream_deserialize(char *dest, stream_t *stream, size_t size);
 
+void stream_ser_string(stream_t *stream, const char *data,
+                       const size_t data_size);
+
+void stream_des_string(char *buffer, stream_t *stream, const size_t size);
+
 #endif
