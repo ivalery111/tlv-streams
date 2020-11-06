@@ -38,4 +38,13 @@ int stream_insert_offset(stream_t *stream, const char *data,
 void stream_set_checkpoint(stream_t *stream);
 size_t stream_get_checkpoint(const stream_t *stream);
 
+/**
+ * @brief Skip number of bytes in stream's buffer
+ *
+ * @param bytes_skip Number of bytes to skip
+ * @note If bytes_skip > 0 - skip forward
+ *       If bytes_skip < 0 - skip backward
+ */
+void stream_skip(stream_t *stream, const int64_t bytes_skip);
+
 #endif

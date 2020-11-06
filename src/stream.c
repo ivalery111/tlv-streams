@@ -94,3 +94,38 @@ size_t stream_get_checkpoint(const stream_t *stream) {
 
   return stream->checkpoint;
 }
+
+void stream_skip(stream_t *stream, const int64_t bytes_skip) {
+  if (bytes_skip >= 0) { /* move forward */
+    size_t available_size = stream->size - stream->next;
+    bool is_resize = false;
+
+    while (available_size < (size_t)bytes_skip) {
+      stream->size = stream->size * 2;
+      available_size = stream->size - stream->next;
+      is_resize = true;
+    }
+
+    if (is_resize == false) {
+      stream->next += (size_t)bytes_skip;
+      return;
+    }
+
+    /* resize */
+    stream->buffer = realloc(stream->buffer, stream->size);
+    assert(stream->buffer != NULL);
+
+    stream->next += (size_t)bytes_skip;
+  } else { /* move backward */
+    const int64_t bytes_skip_pos = -(bytes_skip);
+    const size_t skip_back = (size_t)(bytes_skip_pos);
+
+    const long over = (long)(stream->next - (size_t)bytes_skip_pos);
+
+    if (over > 0) {
+      stream->next -= skip_back;
+    } else {
+      stream->next -= stream->next;
+    }
+  }
+}

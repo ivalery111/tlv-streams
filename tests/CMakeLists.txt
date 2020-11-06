@@ -39,3 +39,10 @@ add_test(
     NAME test_checkpoint
     COMMAND test_checkpoint
 )
+
+add_executable(test_skip test_skip.c)
+target_link_libraries(test_skip net::stream)
+add_test(
+    NAME test_skip
+    COMMAND test_skip
+)
