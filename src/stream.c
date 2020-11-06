@@ -129,3 +129,16 @@ void stream_skip(stream_t *stream, const int64_t bytes_skip) {
     }
   }
 }
+
+void stream_free(stream_t *stream) {
+  if (stream == NULL) return;
+
+  memset(stream->buffer, 0, stream->size);
+  free(stream->buffer);
+
+  stream->size = 0;
+  stream->next = 0;
+  stream->checkpoint = 0;
+
+  free(stream);
+}

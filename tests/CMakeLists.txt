@@ -46,3 +46,10 @@ add_test(
     NAME test_skip
     COMMAND test_skip
 )
+
+add_executable(test_free test_free.c)
+target_link_libraries(test_free net::stream)
+add_test(
+    NAME test_free
+    COMMAND test_free
+)

@@ -47,4 +47,6 @@ size_t stream_get_checkpoint(const stream_t *stream);
  */
 void stream_skip(stream_t *stream, const int64_t bytes_skip);
 
+void stream_free(stream_t *stream);
+
 #endif
