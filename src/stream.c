@@ -82,3 +82,15 @@ int stream_insert_offset(stream_t *stream, const char *data,
   memcpy(stream->buffer + start_offset, data, data_size);
   return SUCCESS;
 }
+
+void stream_set_checkpoint(stream_t *stream) {
+  assert(stream != NULL);
+
+  stream->checkpoint = stream->next;
+}
+
+size_t stream_get_checkpoint(const stream_t *stream) {
+  assert(stream != NULL);
+
+  return stream->checkpoint;
+}

@@ -32,3 +32,10 @@ add_test(
     NAME test_offset_copy
     COMMAND test_offset_copy
 )
+
+add_executable(test_checkpoint test_checkpoint.c)
+target_link_libraries(test_checkpoint net::stream)
+add_test(
+    NAME test_checkpoint
+    COMMAND test_checkpoint
+)
