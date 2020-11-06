@@ -10,6 +10,8 @@ void stream_init(stream_t **stream) {
   (*stream)->size = STREAM_DEF_SIZE;
 
   (*stream)->next = 0;
+
+  (*stream)->checkpoint = 0;
 }
 
 void stream_init_size(stream_t **stream, const size_t stream_size) {
@@ -22,6 +24,8 @@ void stream_init_size(stream_t **stream, const size_t stream_size) {
   (*stream)->size = stream_size;
 
   (*stream)->next = 0;
+
+  (*stream)->checkpoint = 0;
 }
 
 void stream_serialize(stream_t *stream, const char *data,
