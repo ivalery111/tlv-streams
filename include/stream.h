@@ -21,10 +21,6 @@ typedef struct {
 void stream_init(stream_t **stream);
 void stream_init_size(stream_t **stream, const size_t stream_size);
 
-void stream_serialize(stream_t *stream, const char *data,
-                      const size_t data_size);
-void stream_deserialize(char *dest, stream_t *stream, size_t size);
-
 void stream_ser_string(stream_t *stream, const char *data,
                        const size_t data_size);
 

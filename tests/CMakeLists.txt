@@ -5,13 +5,6 @@ add_test(
     COMMAND test_stream_init
 )
 
-add_executable(test_stream_ser test_stream_ser.c)
-target_link_libraries(test_stream_ser net::stream)
-add_test(
-    NAME test_stream_ser
-    COMMAND test_stream_ser
-)
-
 add_executable(test_ser_string test_ser_string.c)
 target_link_libraries(test_ser_string net::stream)
 add_test(
