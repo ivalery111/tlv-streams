@@ -69,3 +69,16 @@ int stream_is_empty(const stream_t *stream) {
 
   return (stream->next == 0 ? 0 : (-1));
 }
+
+/* Copy 'data' to the stream starting from 'start_offset' position */
+int stream_insert_offset(stream_t *stream, const char *data,
+                       const size_t data_size, const size_t start_offset) {
+  assert(stream);
+  assert(data);
+
+  if ((stream->size - stream->next) < data_size) return ERROR;
+  if (stream->size < data_size) return ERROR;
+
+  memcpy(stream->buffer + start_offset, data, data_size);
+  return SUCCESS;
+}

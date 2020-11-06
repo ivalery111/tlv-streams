@@ -31,4 +31,7 @@ void stream_des_string(char *buffer, stream_t *stream, const size_t size);
 
 int stream_is_empty(const stream_t *stream);
 
+int stream_insert_offset(stream_t *stream, const char *data,
+                       const size_t data_size, const size_t start_offset);
+
 #endif

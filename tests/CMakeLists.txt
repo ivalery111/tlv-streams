@@ -25,3 +25,10 @@ add_test(
     NAME test_is_empty
     COMMAND test_is_empty
 )
+
+add_executable(test_offset_copy test_offset_copy.c)
+target_link_libraries(test_offset_copy net::stream)
+add_test(
+    NAME test_offset_copy
+    COMMAND test_offset_copy
+)
