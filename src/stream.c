@@ -81,7 +81,7 @@ int stream_is_empty(const stream_t *stream) {
 
 /* Copy 'data' to the stream starting from 'start_offset' position */
 int stream_insert_offset(stream_t *stream, const char *data,
-                       const size_t data_size, const size_t start_offset) {
+                         const size_t data_size, const size_t start_offset) {
   assert(stream);
   assert(data);
 
