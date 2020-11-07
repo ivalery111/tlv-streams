@@ -4,7 +4,10 @@ project(stream C)
 
 set(C_STANDARD 11)
 
-include(cmake/CompilerFlags.cmake)
+include(cmake/CompilerWarnings.cmake)
+add_library(project_warnings INTERFACE)
+set_project_warnings(project_warnings)
+
 include(cmake/EnableTests.cmake)
 include(cmake/BuildType.cmake)
 
@@ -17,4 +20,6 @@ target_sources(stream PRIVATE
 
 target_include_directories(stream PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
-target_compile_options(stream PUBLIC ${COMPILER_FLAGS})
+target_link_libraries(stream
+    PRIVATE project_warnings
+)
