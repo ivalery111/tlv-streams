@@ -12,6 +12,8 @@ static void test_checkpoint() {
   stream_set_checkpoint(stream);
   const size_t checkpoint = stream_get_checkpoint(stream);
   assert(checkpoint == 4);
+
+  stream_free(stream);
 }
 
 int main(void) {

@@ -19,6 +19,8 @@ static void test_skip() {
 
     stream_ser_string(stream, "xXxX", strlen("xXxX"));
     assert(stream->next == 36);
+
+    stream_free(stream);
   }
   /* Test move backward */
   {
@@ -35,6 +37,8 @@ static void test_skip() {
 
     stream_skip(stream, (-8));
     assert(stream->next == 0);
+
+    stream_free(stream);
   }
 }
 

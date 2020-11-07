@@ -16,6 +16,8 @@ static void test_stream_is_empty() {
   const char *str = "strZ";
   stream_ser_string(stream, str, strlen(str));
   assert((-1) == stream_is_empty(stream));
+
+  stream_free(stream);
 }
 
 int main(void) {

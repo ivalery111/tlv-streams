@@ -24,6 +24,8 @@ static void test_ser_string() {
   char test_2_buffer[2];
   stream_des_string(test_2_buffer, stream, 2);
   assert(0 == memcmp("aA", test_2_buffer, 2));
+
+  stream_free(stream);
 }
 
 static void test_ser_string_resize() {
@@ -39,10 +41,13 @@ static void test_ser_string_resize() {
   /* ... */
   stream->next = 0;
 
-  char buffer[42];
-  stream_des_string(buffer, stream, 42);
+  char buffer[41];
+  stream_des_string(buffer, stream, 41);
 
-  assert(0 == strcmp("testtesttesttesttesttesttesttesttesttestZ", buffer));
+  assert(buffer[41 - 2] == 't');
+  assert(buffer[41 - 1] == 'Z');
+
+  stream_free(stream);
 }
 
 int main(void) {

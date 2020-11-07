@@ -10,6 +10,8 @@ static void test_stream_init() {
   assert(stream->buffer != NULL && "stream->buffer is NULL");
   assert(stream->size == STREAM_DEF_SIZE);
   assert(stream->next == 0);
+
+  stream_free(stream);
 }
 
 static void test_stream_init_size() {
@@ -20,6 +22,8 @@ static void test_stream_init_size() {
   assert(stream->buffer != NULL && "stream->buffer is NULL");
   assert(stream->size == 64);
   assert(stream->next == 0);
+
+  stream_free(stream);
 }
 
 int main(void) {
