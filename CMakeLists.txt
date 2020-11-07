@@ -11,6 +11,10 @@ set_project_warnings(project_warnings)
 include(cmake/EnableTests.cmake)
 include(cmake/BuildType.cmake)
 
+include(cmake/Sanitizers.cmake)
+add_library(sanitizers INTERFACE)
+set_sanitizers(sanitizers)
+
 add_library(stream)
 add_library(net::stream ALIAS stream)
 
@@ -21,5 +25,5 @@ target_sources(stream PRIVATE
 target_include_directories(stream PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 target_link_libraries(stream
-    PRIVATE project_warnings
+    PRIVATE project_warnings sanitizers
 )
