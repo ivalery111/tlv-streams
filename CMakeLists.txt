@@ -15,15 +15,5 @@ include(cmake/Sanitizers.cmake)
 add_library(sanitizers INTERFACE)
 set_sanitizers(sanitizers)
 
-add_library(stream)
-add_library(net::stream ALIAS stream)
-
-target_sources(stream PRIVATE
-    src/stream.c
-)
-
-target_include_directories(stream PUBLIC ${CMAKE_SOURCE_DIR}/include)
-
-target_link_libraries(stream
-    PRIVATE project_warnings sanitizers
-)
+include(cmake/Install.cmake)
+add_subdirectory(src)
