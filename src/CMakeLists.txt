@@ -8,7 +8,7 @@ target_sources(stream PRIVATE
 target_include_directories(stream PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 target_link_libraries(stream
-    PRIVATE project_warnings sanitizers
+    PRIVATE ${PROJECT_NAME}_project_warnings ${PROJECT_NAME}_sanitizers
 )
 
 set_target_properties(stream
